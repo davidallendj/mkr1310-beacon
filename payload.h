@@ -17,6 +17,7 @@ public:
     m_received(received)
   {}
 
+
   // convert payload into 1-dimensional bytes of JSON
   const char* serialize() const {
     JsonDocument doc;
@@ -33,6 +34,7 @@ public:
     return stream.data();
   }
 
+
   void deserialize(const char* stream) {
     JsonDocument doc;
     deserializeJson(doc, stream);
@@ -41,6 +43,7 @@ public:
     m_receiver.from_json(doc["receiver"].as<std::string>());
     m_message.from_json(doc["message"].as<std::string>());
   }
+
 
 private:
   User m_sender;

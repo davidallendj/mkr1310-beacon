@@ -27,6 +27,7 @@ public:
     m_id = uuid.toCharArray();
   }
 
+
   const char* to_json() const {
     JsonDocument doc;
     std::string stream;
@@ -38,6 +39,7 @@ public:
     return stream.data();
   }
 
+
   void from_json(const std::string& stream) {
     JsonDocument doc;
     deserializeJson(doc, stream);
@@ -45,8 +47,10 @@ public:
     m_id = doc["id"].as<std::string>();
     m_name = doc["name"].as<std::string>();
   }
+  
 
   const std::string& get_id() const { return m_id; }
+  const std::string& get_id_short() const { return m_id.substr(0, 8); }
   const std::string& get_name() const { return m_name; }
   const RadioMode& get_radio_mode() const { return m_radio_mode; }
 
