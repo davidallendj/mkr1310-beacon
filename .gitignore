@@ -1,0 +1,8 @@
+# Host test build output
+test/build/
+
+# Arduino build output (arduino-cli writes these beside the sketch)
+*.elf
+*.hex
+*.bin
+*.map
